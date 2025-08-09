@@ -1,0 +1,133 @@
+# script base de datos para pruebas
+Probar Simulador de crédito
+➤ Crear simulación de crédito (POST /api/credito)
+En Postman:
+
+Método: POST
+
+URL: http://127.0.0.1:5000/api/credito
+
+Body → selecciona raw y formato JSON:
+
+json
+Copiar
+Editar
+{
+    "nombres": "Juan",
+    "apellidos": "Pérez",
+    "documento_identidad": "12345678",
+    "edad": 35,
+    "fecha_nacimiento": "1988-02-15",
+    "ingresos_mensuales": 2000000,
+    "gastos_mensuales": 800000,
+    "valor_patrimonio": 5000000,
+    "dimension_terreno": "500 m²",
+    "destinacion_credito": "Compra de maquinaria",
+    "numero_empleados": 2
+}
+
+Consultar simulaciones por cédula (GET /api/credito?cedula=...)
+Método: GET
+
+URL:
+
+arduino
+Copiar
+Editar
+http://127.0.0.1:5000/api/credito?cedula=12345678
+Respuesta esperada: lista de simulaciones de esa persona.
+
+➤ Actualizar simulación (PUT /api/credito/{id})
+Cambia {id} por el que devolvió el POST.
+
+Método: PUT
+
+URL:
+
+ruby
+Copiar
+Editar
+http://127.0.0.1:5000/api/credito/1
+Body JSON:
+
+json
+Copiar
+Editar
+{
+    "gastos_mensuales": 900000
+}
+Respuesta: datos actualizados y nuevo valor_aprobado.
+
+➤ Eliminar simulación (DELETE /api/credito/{id})
+Método: DELETE
+
+URL:
+
+ruby
+Copiar
+Editar
+http://127.0.0.1:5000/api/credito/1
+Respuesta: {"mensaje": "Eliminado"}.
+
+2️⃣ Probar Planilla financiera
+➤ Crear planilla (POST /api/planilla)
+Método: POST
+
+URL:
+
+arduino
+Copiar
+Editar
+http://127.0.0.1:5000/api/planilla
+Body JSON:
+
+json
+Copiar
+Editar
+{
+    "cedula": "12345678",
+    "ingresos": 2000000,
+    "gastos": 500000,
+    "inversiones": 200000,
+    "observaciones": "Mes de enero"
+}
+➤ Consultar planillas por cédula (GET /api/planilla?cedula=...)
+arduino
+Copiar
+Editar
+http://127.0.0.1:5000/api/planilla?cedula=12345678
+Debe devolver utilidad calculada en la respuesta.
+
+➤ Actualizar planilla (PUT /api/planilla/{id})
+json
+Copiar
+Editar
+{
+    "gastos": 600000
+}
+➤ Eliminar planilla (DELETE /api/planilla/{id})
+ruby
+Copiar
+Editar
+http://127.0.0.1:5000/api/planilla/1
+3️⃣ Probar Contacto
+➤ Crear contacto (POST /api/contacto)
+json
+Copiar
+Editar
+{
+    "nombres": "María Gómez",
+    "apellidos": "López",
+    "cedula": "98765432",
+    "correo": "maria@example.com",
+    "celular": "3001234567",
+    "ubicacion": "Vereda El Sol",
+    "direccion": "Finca La Esperanza",
+    "mensaje": "Quiero más información sobre ahorro."
+}
+➤ Listar contactos (GET /api/contacto)
+arduino
+Copiar
+Editar
+http://127.0.0.1:5000/api/contacto
+

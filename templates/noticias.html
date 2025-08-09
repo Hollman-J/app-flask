@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Noticias Financieras - Campo Financiero</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="static/css/styleNoticias.css" />
+</head>
+<body>
+  <header class="container">
+	<a href="{{ url_for('index') }}" class="logo">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+    Campo Financiero
+	</a>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">Inicio</a></li>
+        <li><a href="{{ url_for('credito') }}">Simulador de Crédito</a></li>
+        <li><a href="{{ url_for('planilla') }}">Planilla Financiera</a></li>
+        <li><a href="{{ url_for('noticias') }}" class="active">Noticias</a></li>
+        <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h1>Noticias y consejos</h1>
+      <p>Recopilamos enlaces útiles para que tomes decisiones financieras informadas.</p>
+
+      <div id="lista-noticias">
+        <div class="card">
+          <h3><a href="https://www.bancolombia.com/educacion-financiera/finanzas-personales" target="_blank">Curso de Bancolombia finanzas personales</a></h3>
+          <p class="small">Consejos prácticos para tener en cuenta en los campos de finanzas, sobre vivienda, inversiones y tips.</p>
+        </div>
+        <div class="card">
+          <h3><a href="https://www.bbva.com/es/salud-financiera/manual-para-organizar-las-finanzas-personales/" target="_blank">Mejora tus finanzas con pocos pasos</a></h3>
+          <p class="small">Una guía practica para tener control sobre el presupuesto de gastos de un periodo, como salir de deudas, libros, uso de banca digital.</p>
+        </div>
+		<div class="card">
+          <h3><a href="https://www.minagricultura.gov.co/Paginas/MisFinanzasCuentan.aspx" target="_blank">Programada virtual del ministerio de agricultura</a></h3>
+          <p class="small">Este es un programa diseñado para la poblacion de sector rural, para mejorar el manejo de herramientas que le permitan controlar sus finanzas personales.</p>
+        </div>
+		<div class="card">
+          <h3><a href="https://mesfix.com/blog/blog/finanzas-personales-para-no-financieros/" target="_blank">¿Tienes claro los aspectos a tener en cuenta en tu diario vivir financiero?</a></h3>
+          <p class="small">Aca encontraras los principales items a tener en cuentra para continuar creciendo financieramente.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© Campo Financiero</p>
+  </footer>
+</body>
+</html>

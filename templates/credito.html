@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Simulador de Crédito - Campo Financiero</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styleCredito.css') }}" />
+</head>
+<body>
+  <header class="container">
+	<a href="{{ url_for('index') }}" class="logo">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+    Campo Financiero
+	</a>
+    <nav>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/credito" class="active">Simulador de Crédito</a></li>
+        <li><a href="/planilla">Planilla Financiera</a></li>
+        <li><a href="/noticias">Noticias</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h1>Simulador de Crédito</h1>
+      <form id="form-credito">
+        <div style="display:grid; gap:1rem; grid-template-columns: repeat(auto-fit,minmax(200px,1fr));">
+          <input type="hidden" name="credito_id" />
+          <div><label>Nombres</label><input name="nombres" required /></div>
+          <div><label>Apellidos</label><input name="apellidos" required /></div>
+          <div><label>Cédula</label><input name="documento_identidad" required /></div>
+          <div><label>Edad</label><input name="edad" type="number" required /></div>
+          <div><label>Fecha de nacimiento</label><input name="fecha_nacimiento" type="date" required /></div>
+          <div><label>Ingresos mensuales</label><input name="ingresos_mensuales" type="number" step="0.01" required /></div>
+          <div><label>Gastos mensuales</label><input name="gastos_mensuales" type="number" step="0.01" required /></div>
+          <div><label>Valor del patrimonio</label><input name="valor_patrimonio" type="number" step="0.01" required /></div>
+          <div><label>Dimensión del terreno</label><input name="dimension_terreno" required /></div>
+          <div><label>Destino del crédito</label><input name="destinacion_credito" required /></div>
+          <div><label>Número de empleados</label><input name="numero_empleados" type="number" /></div>
+        </div>
+        <button id="btn-guardar-credito" type="submit" class="button" style="margin-top:1rem;">Guardar registro</button>
+      </form>
+
+      <div id="resultado" class="card" style="display:none; margin-top:1rem;">
+        <h2>Resumen</h2>
+        <div id="detalle-credito"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Historial por cédula</h2>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <div style="flex:1"><label>Cédula</label><input id="buscar-cedula" placeholder="12345678" /></div>
+        <div style="align-self:flex-end;"><button id="btn-buscar" class="button">Buscar</button></div>
+      </div>
+      <div id="historial-credito" style="margin-top:1rem;"></div>
+    </div>
+  </main>
+
+  <footer class="footer"><p>© Campo Financiero</p></footer>
+  <script src="static/js/script.js"></script>
+</body>
+</html>

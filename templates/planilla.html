@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Planilla Financiera - Campo Financiero</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="static/css/stylePlanilla.css" />
+</head>
+<body>
+  <header class="container">
+	<a href="{{ url_for('index') }}" class="logo">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+    Campo Financiero
+	</a>
+    <nav>
+      <ul>
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/credito">Simulador de Crédito</a></li>
+        <li><a href="/planilla" class="active">Planilla Financiera</a></li>
+        <li><a href="/noticias">Noticias</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h1>Planilla Financiera</h1>
+      <p>Registra tus ingresos, gastos e inversiones. Se calcula automáticamente tu utilidad.</p>
+
+      <form id="form-planilla">
+        <div style="display:grid; gap:1rem; grid-template-columns: repeat(auto-fit,minmax(200px,1fr));">
+          <input type="hidden" name="plan_id" />
+          <div><label>Cédula</label><input name="cedula" required /></div>
+          <div><label>Ingresos</label><input type="number" name="ingresos" required min="0" step="0.01" /></div>
+          <div><label>Gastos</label><input type="number" name="gastos" required min="0" step="0.01" /></div>
+          <div><label>Inversiones</label><input type="number" name="inversiones" required min="0" step="0.01" /></div>
+          <div style="grid-column:1 / -1;"><label>Observaciones</label><textarea name="observaciones" rows="2"></textarea></div>
+        </div>
+        <div style="margin-top:1rem;">
+          <button id="btn-guardar-planilla" type="submit" class="button">Guardar registro</button>
+        </div>
+      </form>
+
+      <div id="resultado-planilla" class="card" style="display:none;">
+        <h2>Resumen</h2>
+        <div id="detalle-planilla"></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Historial por cédula</h2>
+      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+        <div style="flex:1; min-width:200px;">
+          <label>Cédula</label>
+          <input id="buscar-cedula-planilla" placeholder="12345678" />
+        </div>
+        <div style="align-self:flex-end;">
+          <button id="btn-buscar-planilla" class="button">Buscar</button>
+        </div>
+      </div>
+      <div id="historial-planilla" style="margin-top:1rem;"></div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© Campo Financiero</p>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+</body>
+</html>

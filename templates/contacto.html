@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contacto - Campo Financiero</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styleContacto.css') }}" />
+</head>
+<body>
+  <header class="container">
+	<a href="{{ url_for('index') }}" class="logo">
+    <img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo">
+    Campo Financiero
+	</a>
+  <nav>
+    <ul>
+      <li><a href="{{ url_for('index') }}" class="active">Inicio</a></li>
+      <li><a href="{{ url_for('credito') }}">Simulador de Crédito</a></li>
+      <li><a href="{{ url_for('planilla') }}">Planilla Financiera</a></li>
+      <li><a href="{{ url_for('noticias') }}">Noticias</a></li>
+      <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+  <div class="card">
+    <h1>Contacto</h1>
+    <form id="form-contacto">
+      <div>
+        <label for="nombres">Nombres</label>
+        <input name="nombres" required />
+      </div>
+      <div>
+        <label for="apellidos">Apellidos</label>
+        <input name="apellidos" />
+      </div>
+      <div>
+        <label for="cedula">Cédula</label>
+        <input name="cedula" />
+      </div>
+      <div>
+        <label for="correo">Correo electrónico</label>
+        <input type="email" name="correo" required />
+      </div>
+      <div>
+        <label for="celular">Celular</label>
+        <input name="celular" />
+      </div>
+      <div>
+        <label for="ubicacion">Ubicación</label>
+        <input name="ubicacion" />
+      </div>
+      <div>
+        <label for="direccion">Dirección</label>
+        <input name="direccion" />
+      </div>
+      <div>
+        <label for="mensaje">Mensaje</label>
+        <textarea name="mensaje" rows="4" required></textarea>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+    <div id="respuesta-contacto"></div>
+  </div>
+</main>
+
+
+  <footer class="footer"><p>© Campo Financiero</p></footer>
+  <script src="static/js/script.js"></script>
+</body>
+</html>
