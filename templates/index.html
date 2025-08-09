@@ -15,13 +15,58 @@
   <nav>
     <ul>
       <li><a href="{{ url_for('index') }}" class="active">Inicio</a></li>
-      <li><a href="{{ url_for('credito') }}">Simulador de Crédito</a></li>
-      <li><a href="{{ url_for('planilla') }}">Planilla Financiera</a></li>
-      <li><a href="{{ url_for('noticias') }}">Noticias</a></li>
-      <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+      <li><a href="{{ url_for('credito') }}"class="not-active" >Simulador de Crédito</a></li>
+      <li><a href="{{ url_for('planilla') }}" class="not-active" >Planilla Financiera</a></li>
+      <li><a href="{{ url_for('noticias') }}" class="not-active" >Noticias</a></li>
+      <li><a href="{{ url_for('contacto') }}" class="not-active" >Contacto</a></li>
     </ul>
   </nav>
 </header>
+	<section class="hero">
+  <div class="hero-content">
+    <h1>Plata pal Campo: ¡Aprenda a Manejar la Platica Fácil!</h1>
+    <p>¡Porque su esfuerzo en la tierra merece una buena cosecha también en el bolsillo!</p>
+    <div class="hero-buttons">
+      <a href="#" class="button verde">Haz clic aquí</a>
+      <a href="{{ url_for('planilla') }}" class="button amarillo">¡Empiece a Aprender Ya!</a>
+      <a href="{{ url_for('contacto') }}" class="button negro">¿Necesita Ayuda?</a>
+    </div>
+  </div>
+	</section>
+	<section class="features">
+  <h2 class="features-title">¿Pa' qué sirve esta página, mijo?</h2>
+  <div class="features-grid">
+    
+    <div class="feature-card">
+      <img src="{{ url_for('static', filename='img/icono-flor.png') }}" alt="Icono crédito">
+      <h3>Simulador de Crédito</h3>
+      <p>Calcule de forma sencilla cuánto pagar por su crédito agrícola.</p>
+      <a href="{{ url_for('credito') }}" class="button verde">Ir al simulador</a>
+    </div>
+
+    <div class="feature-card">
+      <img src="{{ url_for('static', filename='img/icono-flor.png') }}" alt="Icono planilla">
+      <h3>Planilla Financiera</h3>
+      <p>Organice sus ingresos y gastos para que siempre le rinda la platica.</p>
+      <a href="{{ url_for('planilla') }}" class="button verde">Ir a la planilla</a>
+    </div>
+
+    <div class="feature-card">
+      <img src="{{ url_for('static', filename='img/icono-flor.png') }}" alt="Icono noticias">
+      <h3>Noticias</h3>
+      <p>Entérese de las novedades que afectan al campo y su economía.</p>
+      <a href="{{ url_for('noticias') }}" class="button verde">Ver noticias</a>
+    </div>
+
+    <div class="feature-card">
+      <img src="{{ url_for('static', filename='img/icono-flor.png') }}" alt="Icono contacto">
+      <h3>Contacto</h3>
+      <p>Comuníquese con nosotros para resolver sus dudas o pedir apoyo.</p>
+      <a href="{{ url_for('contacto') }}" class="button verde">Contáctenos</a>
+    </div>
+
+  </div>
+</section>
 
   <main class="container">
     <div class="card">
@@ -46,6 +91,7 @@
         </ul>
       </div>
     </div>
+
   </main>
 
   <footer class="footer">
