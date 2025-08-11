@@ -1,14 +1,61 @@
-# app.py
-from flask import Flask, request, jsonify, render_template
+# Importaciones estándar de Python
+import json
+import os
+from datetime import datetime
+
+# Librerías externas
+import google.generativeai as genai
+from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
 from psycopg2.extras import RealDictCursor
+
+# Módulos locales
 from database import get_db_connection, initialize_database
+
 
 app = Flask(__name__)
 CORS(app)  # Permitir peticiones desde frontend
 
+
 # Asegurarse de que la estructura de base de datos exista
 initialize_database()
+
+# ------------------------
+# Consejo del día
+# ------------------------
+
+genai.configure(api_key="AIzaSyCD3f12xi1_hdRZ6EC_dmDFPQmswgM7GlA") #La api key para usar openai
+# Elegir el modelo de Gemini
+model = genai.GenerativeModel("gemini-1.5-flash")
+
+CONSEJO_FILE = "consejo.json"
+
+def obtener_consejo():
+    hoy = datetime.now().strftime("%Y-%m-%d")
+
+    # Verificar si el archivo existe y contiene datos válidos
+    if os.path.exists(CONSEJO_FILE):
+        try:
+            with open(CONSEJO_FILE, "r", encoding="utf-8") as f:
+                contenido = f.read().strip()
+                if contenido:  # solo intentar parsear si no está vacío
+                    data = json.loads(contenido)
+                    if data.get("fecha") == hoy:
+                        return data["consejo"]
+        except (json.JSONDecodeError, KeyError):
+            # Si el archivo está corrupto o incompleto, seguimos y lo sobreescribimos
+            pass
+
+    # Si no existe, está vacío o es otro día → pedir nuevo consejo
+    prompt = "Dame un consejo financiero breve y práctico para campesinos en Colombia."
+    response = model.generate_content(prompt)
+    consejo = response.text.strip()
+
+    # Guardar el nuevo consejo
+    with open(CONSEJO_FILE, "w", encoding="utf-8") as f:
+        json.dump({"fecha": hoy, "consejo": consejo}, f, ensure_ascii=False, indent=2)
+
+    return consejo
 
 
 # ------------------------
@@ -356,7 +403,8 @@ def listar_contactos():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    consejo = obtener_consejo()
+    return render_template('index.html', consejo=consejo)
 
 @app.route('/credito')
 def credito():

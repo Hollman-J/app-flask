@@ -24,75 +24,260 @@
 </header>
 	<section class="hero">
   <div class="hero-content">
-    <h1>Plata pal Campo: ¡Aprenda a Manejar la Platica Fácil!</h1>
-    <p>¡Porque su esfuerzo en la tierra merece una buena cosecha también en el bolsillo!</p>
-    <div class="hero-buttons">
-      <a href="#" class="button verde">Haz clic aquí</a>
-      <a href="{{ url_for('planilla') }}" class="button amarillo">¡Empiece a Aprender Ya!</a>
-      <a href="{{ url_for('contacto') }}" class="button negro">¿Necesita Ayuda?</a>
-    </div>
+  <h1>Plata pa'l Campo: ¡Aprenda a Manejar la Platica Fácil!</h1>
+  <p>Porque su esfuerzo en la tierra merece una buena cosecha también en el bolsillo.</p>
+  <p>Le ayudamos a calcular créditos, organizar sus cuentas y enterarse de noticias que afectan al campo. 
+  Todo en un solo lugar, sin enredos, pensado para usted y su comunidad.</p>
   </div>
 	</section>
 	<section class="features">
-  <h2 class="features-title">¿Pa' qué sirve esta página, mijo?</h2>
+  <h2 class="features-title">Algunas herramientas útiles</h2>
   <div class="features-grid">
     
     <div class="feature-card">
-      <img src="{{ url_for('static', filename='img/icono-flor.png') }}" alt="Icono crédito">
-      <h3>Simulador de Crédito</h3>
-      <p>Calcule de forma sencilla cuánto pagar por su crédito agrícola.</p>
-      <a href="{{ url_for('credito') }}" class="button verde">Ir al simulador</a>
+		<div class="green-line">
+		</div>
+    <div class="image-container">
+      <img src="{{ url_for('static', filename='img/credito.png') }}" alt="Icono crédito">
+    </div>
+		<div class="feature-card-inside">
+		  <h3>Simulador de Crédito</h3>
+		  <p>Calcule de forma sencilla cuánto pagar por su crédito agrícola.</p>
+		  <a href="{{ url_for('credito') }}" class="button verde">Ir al simulador</a>
+		</div>
     </div>
 
     <div class="feature-card">
-      <img src="{{ url_for('static', filename='img/icono-flor.png') }}" alt="Icono planilla">
-      <h3>Planilla Financiera</h3>
-      <p>Organice sus ingresos y gastos para que siempre le rinda la platica.</p>
-      <a href="{{ url_for('planilla') }}" class="button verde">Ir a la planilla</a>
+		<div class="green-line">
+		</div>
+    <div class="image-container">
+		  <img src="{{ url_for('static', filename='img/calculadora.png') }}" alt="Icono planilla">		
+    </div>
+		<div class="feature-card-inside">
+		  <h3>Planilla Financiera</h3>
+		  <p>Organice sus ingresos y gastos para que siempre le rinda la platica.</p>
+		  <a href="{{ url_for('planilla') }}" class="button verde">Ir a la planilla</a>
+		</div>
     </div>
 
     <div class="feature-card">
-      <img src="{{ url_for('static', filename='img/icono-flor.png') }}" alt="Icono noticias">
-      <h3>Noticias</h3>
-      <p>Entérese de las novedades que afectan al campo y su economía.</p>
-      <a href="{{ url_for('noticias') }}" class="button verde">Ver noticias</a>
+		<div class="green-line">
+		</div>
+    <div class="image-container">
+      <img src="{{ url_for('static', filename='img/noticias.png') }}" alt="Icono noticias">
+    </div>
+		<div class="feature-card-inside">
+			<h3>Noticias</h3>
+			<p>Entérese de las novedades que afectan al campo y su economía.</p>
+			<a href="{{ url_for('noticias') }}" class="button verde">Ver noticias</a>
+		</div>
     </div>
 
     <div class="feature-card">
-      <img src="{{ url_for('static', filename='img/icono-flor.png') }}" alt="Icono contacto">
-      <h3>Contacto</h3>
-      <p>Comuníquese con nosotros para resolver sus dudas o pedir apoyo.</p>
-      <a href="{{ url_for('contacto') }}" class="button verde">Contáctenos</a>
+		<div class="green-line">
+		</div>
+    <div class="image-container">
+      <img src="{{ url_for('static', filename='img/contacto.png') }}" alt="Icono contacto">
     </div>
+		<div class="feature-card-inside">
+			<h3>Contacto</h3>
+			<p>Comuníquese con nosotros para resolver sus dudas o pedir apoyo.</p>
+			<a href="{{ url_for('contacto') }}" class="button verde">Contáctenos</a>
+		</div>
+	</div>
 
   </div>
 </section>
 
-  <main class="container">
-    <div class="card">
-      <h1>Bienvenido a Campo Financiero</h1>
-      <p>Controla tus finanzas, reverdece tus raíces. Aprende, simula créditos y administra tu economía con herramientas simples pensadas para el campo.</p>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
-        <a href="{{ url_for('credito') }}" class="button">Simulador de Crédito</a>
-        <a href="{{ url_for('planilla') }}" class="button">Planilla Financiera</a>
+<section class="seccion-verde">
+  <h2>¿Pa' qué sirve esta página, mijo?</h2>
+  
+  <div class="tarjetas-container">
+    <div class="tarjeta">
+      <h3>Aprender sin enredos</h3>
+      <p>Le enseñamos con palabras claras, pa' que entienda cómo hacer que su platica rinda más, sin tanto complique ni números raros.</p>
+    </div>
+    
+    <div class="tarjeta">
+      <h3>Sembrar el futuro</h3>
+      <p>Aquí va a encontrar cómo organizar sus gastos e ingresos, pa' que no le falte pa' lo importante y le quede un guardadito pal mañana.</p>
+    </div>
+    
+    <div class="tarjeta">
+      <h3>Compartir la sabiduría</h3>
+      <p>Queremos que comparta lo que aprenda con sus vecinos y familia, pa' que todos en el campo tengamos más control de nuestra economía.</p>
+    </div>
+  </div>
+
+  <div class="subtitulo">
+    <h3>Su platica, su futuro: ¿Por qué es importante?</h3>
+    <p>
+      Manejar bien la platica es como cuidar la tierra: si la trabaja con juicio, da frutos.  
+      Saber dónde entra y dónde sale cada peso le permite planear, invertir en su finca,  
+      y darle un mejor porvenir a su familia. ¡No deje que el trabajo duro se le vaya en el viento!
+    </p>
+  </div>
+</section>
+
+<section class="seccion-verde2">
+  <h2>¡Pa' Empezar a Guardar! (C de Crear)</h2>
+  <p class="intro">
+    Así como siembra el maíz, empiece a sembrar sus ingresos.  
+    Anote todo lo que le entra y lo que gasta.
+  </p>
+
+  <ul class="lista-con-iconos">
+    <li>
+      <img class="icono" src="{{ url_for('static', filename='img/ahorrar-dinero.png') }}" alt="Icono ahorrar">
+      <div>
+        <strong>¡Calcule su entrada!</strong><br>
+        Sume lo que gana por la cosecha, la venta de animales, el jornal, o cualquier otra entrada.  
+        ¡Hasta la venta de los huevos de las gallinas cuenta!
       </div>
+    </li>
+    <li>
+      <img class="icono" src="{{ url_for('static', filename='img/documento.png') }}" alt="Icono ahorrar">
+      <div>
+        <strong>¡Anote los gastos!</strong><br>
+        Desde la compra de abono, el concentrado, la ida al pueblo, hasta el dulce que le da a los niños.  
+        ¡Todo, todo va anotado!
+      </div>
+    </li>
+    <li>
+      <img class="icono" src="{{ url_for('static', filename='img/lapiz.png') }}" alt="Icono ahorrar">
+      <div>
+        <strong>Use su cuaderno o libreta</strong><br>
+        No tiene que ser en un computador. Un cuaderno viejo y un lápiz son suficientes para llevar sus cuentas claras cada día.
+      </div>
+    </li>
+  </ul>
+    <div class="feature-card">
+		  <div class="green-line"></div>
+      <div class="image-container">
+		    <img src="{{ url_for('static', filename='img/calculadora.png') }}" alt="Icono planilla">		
+      </div>
+		  <div class="feature-card-inside">
+		    <h3>Planilla Financiera</h3>
+		    <p>Organice sus ingresos y gastos para que siempre le rinda la platica.</p>
+		    <a href="{{ url_for('planilla') }}" class="button verde">Ir a la planilla</a>
+		  </div>
+    </div>
+</section>
+
+<section class="section-revisar">
+  <div class="container">
+    <h2>¿Cuánta platica tengo? <span class="resaltar">(R de Revisar)</span></h2>
+    <p>
+      Antes de pedir un préstamo, es importante saber hasta cuánto le puede prestar el banco 
+      según su capacidad de pago. Aquí puede hacer la cuenta fácil y rápida con nuestro 
+      <strong>Simulador de Crédito</strong>. Así sabrá si le alcanza para invertir en su finca, 
+      comprar material o cumplir sus metas sin enredarse con las deudas.
+    </p>
+  </div>
+    <div class="feature-card">
+		  <div class="green-line"></div>
+      <div class="image-container">
+        <img src="{{ url_for('static', filename='img/credito.png') }}" alt="Icono crédito">
+      </div>
+		  <div class="feature-card-inside">
+		    <h3>Simulador de Crédito</h3>
+		    <p>Calcule de forma sencilla cuánto pagar por su crédito agrícola.</p>
+		    <a href="{{ url_for('credito') }}" class="button verde">Ir al simulador</a>
+		  </div>
+    </div>
+    </a>
+</section>
+
+<section class="seccion-usar">
+  <div class="tarjeta-uso">
+      <div class="texto-tarjeta-uso">
+    <h2>¡Que la platica crezca! (U de Usar)</h2>
+    <p class="intro">
+    No es solo guardar, es saber dónde ponerla a trabajar pa' que dé más frutos.
+    </p>
+  </div>
+    <div class="uso-items">
+    <div class="uso-item">
+      <img src="{{ url_for('static', filename='img/sembrar.png') }}" alt="Invierta en su tierra">
+      <h3>Invierta en su tierra</h3>
+      <p>
+        Compre mejores semillas, arregle el tractor, o mejore el corral.  
+        ¡La finca es su mejor banco!
+      </p>
     </div>
 
-    <div class="grid" style="display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:1rem;">
-      <div class="card">
-        <h2>Consejo del día</h2>
-        <p id="consejo-deldia">Ahorra al menos el 10% de tus ingresos mensuales para emergencias agrícolas.</p>
-      </div>
-      <div class="card">
-        <h2>Últimas noticias</h2>
-        <ul id="mini-noticias">
-          <li><a href="noticias.html">Cómo proteger tu cosecha ante crisis económicas</a></li>
-          <li><a href="noticias.html">Ahorro inteligente en la temporada seca</a></li>
-        </ul>
-      </div>
+    <div class="uso-item">
+      <img src="{{ url_for('static', filename='img/ahorro.png') }}" alt="Ahorre pa' las vacas flacas">
+      <h3>Ahorre pa' las vacas flacas</h3>
+      <p>
+        Un guardadito en el banco o bajo el colchón, pa' cuando llegue una sequía,  
+        una enfermedad, o cualquier cosa inesperada.
+      </p>
     </div>
 
-  </main>
+    <div class="uso-item">
+      <img src="{{ url_for('static', filename='img/creditos.png') }}" alt="Piense en créditos pequeños">
+      <h3>Piense en créditos pequeños</h3>
+      <p>
+        Si necesita algo grande, un crédito bien manejado con el Banco Agrario  
+        o una cooperativa puede ayudarlo a crecer. ¡Pero ojo con los intereses!
+      </p>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="consejo-dia">
+  <h2>💡 Consejo del Día</h2>
+  <p>{{ consejo }}</p>
+</section>
+
+<section class="seccion-noticias">
+  <h2>Últimas Noticias</h2>
+  <div class="noticias-grid">
+    <!-- Noticia 1 -->
+    <div class="noticia-card">
+      <img src="https://www.financecolombia.com/wp-content/uploads/2025/02/cafe-de-colombia.jpg.640x0_q85_crop-1.jpg" alt="Agricultura crece 7.1 %">
+      <div class="noticia-info">
+        <small>Junio 3, 2025 | Economía</small>
+        <h3>La agricultura en Colombia crece 7.1% en el primer cuatrimestre de 2025</h3>
+        <p>El sector agrícola consolidó su rol como motor económico, con crecimiento destacado en café y pesca.</p>
+        <a href="https://www.financecolombia.com/colombias-agricultural-output-grew-7-1-in-q1-2025/" class="ver-mas">Ver más</a>
+      </div>
+    </div>
+    <!-- Noticia 2 -->
+    <div class="noticia-card">
+      <img src="https://a.storyblok.com/f/160385/890x605/9204edb7de/reportaje-semillas-forrajeras-en-colombia.jpg" alt="Semillas mejoradas para la siembra">
+      <div class="noticia-info">
+        <small>Agosto 8, 2025 | Agricultura</small>
+        <h3>Con semillas mejoradas, productores agrícolas apuestan por un semestre récord en productividad</h3>
+        <p>Colombia inicia la temporada clave de siembras y miles de agricultores se preparan para establecer cultivos estratégicos como maíz, arroz, soya y algodón.</p>
+        <a href="https://www.ica.gov.co/noticias/inicia-temporada-siembra-segundo-semestre" class="ver-mas">Ver más</a>
+      </div>
+    </div>
+    <!-- Noticia 3 -->
+    <div class="noticia-card">
+      <img src="https://www.fao.org/images/faoinvestmentcentrelibraries/default-album/patrick-zachmannmagnum-photo-for-fao.jpg?sfvrsn=b1295f6f_3" alt="sistemas agroalimentarios">
+      <div class="noticia-info">
+        <small>Julio 24, 2025 | Desarrollo</small>
+        <h3>Impulsando la transformación de los sistemas agroalimentarios en Colombia</h3>
+        <p>Un informe de la FAO y la UE revela nuevas oportunidades para fortalecer sistemas agroalimentarios sostenibles en regiones como Montes de María y Nariño.</p>
+        <a href="https://www.fao.org/investment-centre/latest/news/detail/advancing-agrifood-systems-transformation-in-colombia/" class="ver-mas">Ver más</a>
+      </div>
+    </div>
+    <!-- Noticia 4 -->
+    <div class="noticia-card">
+      <img src="https://dims.apnews.com/dims4/default/720350d/2147483647/strip/true/crop/4500x2998+0+1/resize/980x653!/format/webp/quality/90/?url=https%3A%2F%2Fassets.apnews.com%2Fb7%2Fc2%2F30a442f6d0ae315e450b5a00c4f8%2F2df838b66c924bb39ee348523c09e648" alt="Amazonas afectado">
+      <div class="noticia-info">
+        <small>Julio 31, 2025 | Economía</small>
+        <h3>La deforestación de la Amazonía colombiana aumenta y revierte avances históricos</h3>
+        <p>En 2024, Colombia perdió más de 113 mil hectáreas de bosque en la Amazonía — un alarmante retroceso que afecta la seguridad ambiental y comunitaria.</p>
+        <a href="https://apnews.com/article/colombia-amazon-rainforest-deforestation-illegal-mining-6aa736a45b3e999485394cc1529fa8e7" class="ver-mas">Ver más</a>
+      </div>
+    </div>
+  </div>
+</section>
 
   <footer class="footer">
     <p>© 2025 Campo Financiero. “Controla tus finanzas, reverdece tus raíces.”</p>
