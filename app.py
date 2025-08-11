@@ -8,6 +8,7 @@ import google.generativeai as genai
 from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
 from psycopg2.extras import RealDictCursor
+from dotenv import load_dotenv
 
 # Módulos locales
 from database import get_db_connection, initialize_database
@@ -24,7 +25,7 @@ initialize_database()
 # Consejo del día
 # ------------------------
 
-genai.configure(api_key="AIzaSyCD3f12xi1_hdRZ6EC_dmDFPQmswgM7GlA") #La api key para usar openai
+genai.configure(api_key = os.getenv("GEMINI_API_KEY")) #La api key para usar openai
 # Elegir el modelo de Gemini
 model = genai.GenerativeModel("gemini-1.5-flash")
 
