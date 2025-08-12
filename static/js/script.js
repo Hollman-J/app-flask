@@ -51,13 +51,10 @@ async function initSimuladorCredito() {
         return;
       }
 
-      resultadoCard.style.display = 'block';
+      resultadoCard.style.display = 'none';
       detalle.innerHTML = `
-        <p><strong>Nombre:</strong> ${json.nombres} ${json.apellidos}</p>
-        <p><strong>Documento:</strong> ${json.documento_identidad}</p>
-        <p><strong>Valor aprobado:</strong> ${json.valor_aprobado ?? 'N/A'}</p>
-        <p><strong>Fecha:</strong> ${json.created_at ? new Date(json.created_at).toLocaleDateString() : (json.fecha ? new Date(json.fecha).toLocaleDateString() : '')}</p>
-        <pre class="small">Datos completos: ${JSON.stringify(json,null,2)}</pre>
+        Señor/a ${json.nombres} ${json.apellidos} su registrose a guardado con éxito
+		su valor aprobado de crédito es aproximadamente:${json.valor_aprobado ?? 'N/A'}
       `;
 
       // Reiniciar formulario y estado
@@ -245,6 +242,27 @@ async function initPlanilla() {
     }
   });
 }
+
+window.eliminarCredito = async function(sim_id) {
+  if (!confirm('¿Seguro que quieres eliminar este crédito?')) return;
+
+  try {
+    const res = await fetch(`${baseUrl}/api/credito/${sim_id}`, {
+      method: 'DELETE'
+    });
+    const data = await res.json();
+
+    if (!res.ok) {
+      alert(data.error || 'Error al eliminar');
+      return;
+    }
+
+    alert('Crédito eliminado correctamente');
+    document.getElementById('btn-buscar').click();
+  } catch (err) {
+    alert('Error de red al intentar eliminar');
+  }
+};
 
 function editarPlanilla(button) {
   try {

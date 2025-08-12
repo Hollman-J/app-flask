@@ -2,8 +2,15 @@
 import os
 import psycopg2
 from psycopg2 import sql
+import os
+from dotenv import load_dotenv
 
-DATABASE_URL = os.environ.get('DATABASE_URL','postgresql://adminAppFinancieraDB:1234@localhost:5432/appFinancieraDB')
+load_dotenv()
+
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+if not DATABASE_URL:
+    raise ValueError("No se encontró la variable de entorno DATABASE_URL")
 
 
 def get_db_connection():
