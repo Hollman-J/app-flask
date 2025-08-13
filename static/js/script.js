@@ -286,6 +286,91 @@ function editarPlanilla(button) {
   }
 
 }
+
+//botones de alertas
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form-credito');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        try {
+            const res = await fetch('/api/credito', {
+                method: 'POST', // si usas PUT para editar, cámbialo dinámicamente
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const json = await res.json();
+
+            if (res.ok) {
+                Swal.fire({
+                    title: '¡Crédito registrado!',
+                    text: 'La solicitud de crédito se ha guardado exitosamente.',
+                    imageUrl: "{{ url_for('static', filename='img/logo_completo.png') }}", // Para Flask
+                    imageWidth: 220,
+                    imageHeight: 200,
+                    imageAlt: 'Logo2',
+                    confirmButtonColor: '#73CBD8',
+                    icon: 'success'
+                });
+
+                form.reset();
+            } else {
+                Swal.fire('Error', json.error || 'No se pudo guardar el crédito', 'error');
+            }
+
+        } catch (error) {
+            console.error(error);
+            Swal.fire('Error', 'Hubo un problema al conectar con el servidor', 'error');
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form-planilla');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        try {
+            const res = await fetch('/api/planilla', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const json = await res.json();
+
+            if (res.ok) {
+                Swal.fire({
+                    title: '¡Registro guardado!',
+                    text: 'La planilla se ha guardado correctamente.',
+                    imageUrl: "{{ url_for('static', filename='img/logo_completo.png') }}", // para Flask
+                    imageWidth: 220,
+                    imageHeight: 200,
+                    imageAlt: 'Logo2',
+                    confirmButtonColor: '#73CBD8',
+                    icon: 'success'
+                });
+
+                form.reset();
+            } else {
+                Swal.fire('Error', json.error || 'No se pudo guardar la planilla', 'error');
+            }
+
+        } catch (error) {
+            console.error(error);
+            Swal.fire('Error', 'Hubo un problema al conectar con el servidor', 'error');
+        }
+    });
+});
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form-contacto');
 
