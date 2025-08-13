@@ -90,9 +90,18 @@ nav a.active {
 main {
   padding-top: 2rem;
 }
+.imgPlanilla {
+  width: 100%;               /* ocupa todo el ancho */
+  height: 100vh;              /* ocupa todo el alto de la ventana */
+  background-image: url('../img/planilla1.jpg');
+  background-size: cover;     /* que cubra todo el div */
+  background-position: center;/* centrada */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* que no se mueva con el scroll */
+}
 
 .card {
-  background: white;
+  background:rgba(255, 255, 255, 0.301);
   border-radius: var(--radio);
   padding: 1.25rem 1rem;
   box-shadow: var(--sombra);
