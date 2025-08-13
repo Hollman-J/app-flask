@@ -286,6 +286,60 @@ function editarPlanilla(button) {
   }
 
 }
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('form-contacto');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Evita recarga de página
+
+        // Capturamos datos del formulario
+        const data = Object.fromEntries(new FormData(form).entries());
+
+        try {
+            // Enviar datos al backend
+            const res = await fetch('/api/contacto', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const json = await res.json();
+
+            // Si el backend responde OK 
+            if (res.ok) {
+                // Mostrar SweetAlert después de guardar
+                Swal.fire({
+                    title: '¡Gracias por tu preferencia!',
+                    text: 'Gracias por enviar sus datos, un agente se contactara lo mas pronto posible.',
+                    imageUrl: 'static/img/logo_completo.png',
+                    imageWidth: 220,
+                    imageHeight: 200,
+                    imageAlt: 'Logo2',
+                    confirmButtonColor: '#73CBD8',
+                });
+
+                form.reset(); // limpiar el formulario
+            } else {
+                Swal.fire('Error', json.error || 'No se pudo guardar el contacto', 'error');
+            }
+
+        } catch (error) {
+            console.error(error);
+            Swal.fire('Error', 'Hubo un problema al conectar con el servidor', 'error');
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
  document.addEventListener('DOMContentLoaded', () => {
   initSimuladorCredito();
   initPlanilla(); // si también estás usando planilla

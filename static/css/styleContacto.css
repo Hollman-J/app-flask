@@ -92,13 +92,25 @@ main {
 }
 
 .card {
-  background: white;
+  background: rgba(255, 255, 255, 0.301);
   border-radius: var(--radio);
   padding: 1.25rem 1rem;
   box-shadow: var(--sombra);
   margin-bottom: 1.5rem;
   position: relative;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 80%;
+  height: 60%;
+  margin: 0 auto;
+}
+.fondo{
+  background-image: url('../img/campesinoscolombianos.jpg');
+ height: 60%;
+ width: 50%;
+  background-size:auto;
+  margin: 0 auto;
+  background-attachment: fixed;
+  background-position: center;  
 }
 
 .card:hover {
