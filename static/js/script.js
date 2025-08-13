@@ -331,15 +331,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
-
-
-
-
-
-
-
-
  document.addEventListener('DOMContentLoaded', () => {
   initSimuladorCredito();
   initPlanilla(); // si también estás usando planilla
