@@ -9,10 +9,10 @@ from flask import Flask, jsonify, render_template, request
 from flask_cors import CORS
 from psycopg2.extras import RealDictCursor
 from dotenv import load_dotenv
+load_dotenv()
 
 # Módulos locales
 from database import get_db_connection, initialize_database
-
 
 app = Flask(__name__)
 CORS(app)  # Permitir peticiones desde frontend
@@ -24,8 +24,10 @@ initialize_database()
 # ------------------------
 # Consejo del día
 # ------------------------
-
-genai.configure(api_key = os.getenv("GEMINI_API_KEY")) #La api key para usar openai
+print("DEBUG GEMINI_API_KEY:", os.getenv("GOOGLE_API_KEY"))
+if not os.getenv("GEMINI_API_KEY"):
+    raise ValueError("No se encontró GOOGLE_API_KEY en las variables de entorno.")
+genai.configure(api_key = os.getenv("GOOGLE_API_KEY")) #La api key para usar openai
 # Elegir el modelo de Gemini
 model = genai.GenerativeModel("gemini-1.5-flash")
 
