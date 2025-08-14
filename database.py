@@ -5,7 +5,7 @@ from psycopg2 import sql
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
 DATABASE_URL = os.environ.get('DATABASE_URL')
 

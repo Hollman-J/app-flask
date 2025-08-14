@@ -288,6 +288,7 @@ function editarPlanilla(button) {
 }
 
 //botones de alertas
+//alerta boton credito
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form-credito');
 
@@ -307,9 +308,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (res.ok) {
                 Swal.fire({
-                    title: '¡Crédito registrado!',
-                    text: 'La solicitud de crédito se ha guardado exitosamente.',
-                    imageUrl: "{{ url_for('static', filename='img/logo_completo.png') }}", // Para Flask
+                    title: '¡Simulacion de Crédito registrado!',
+                    text: 'La simulación de solicitud de crédito se ha guardado exitosamente.',
+                    imageUrl: 'static/img/logo_completo.png', 
                     imageWidth: 220,
                     imageHeight: 200,
                     imageAlt: 'Logo2',
@@ -329,6 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// alerta boton planilla
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('form-planilla');
 
@@ -350,7 +352,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Swal.fire({
                     title: '¡Registro guardado!',
                     text: 'La planilla se ha guardado correctamente.',
-                    imageUrl: "{{ url_for('static', filename='img/logo_completo.png') }}", // para Flask
+                    imageUrl: 'static/img/logo_completo.png', 
                     imageWidth: 220,
                     imageHeight: 200,
                     imageAlt: 'Logo2',
